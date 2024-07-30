@@ -26,7 +26,7 @@ function EmployeePage() {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/employee/getAllEmployee');
+      const response = await axios.get('https://employee-management-backend-psi.vercel.app/api/employee/getAllEmployee');
       // console.log(response.avatar);
       setEmployees(response.data);
     } catch (error) {
@@ -67,12 +67,12 @@ function EmployeePage() {
 
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/api/employee/updateAEmployee/${editingEmployee._id}`, formData, {
+        await axios.put(`https://employee-management-backend-psi.vercel.app/api/employee/updateAEmployee/${editingEmployee._id}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         toast.success('Employee updated successfully');
       } else {
-        await axios.post('http://localhost:5000/api/employee/createemployee', formData, {
+        await axios.post('https://employee-management-backend-psi.vercel.app/api/employee/createemployee', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         toast.success('Employee added successfully');
@@ -112,7 +112,7 @@ function EmployeePage() {
 
   const deleteEmployee = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/employee/deleteAEmployee/${id}`);
+      await axios.delete(`https://employee-management-backend-psi.vercel.app/api/employee/deleteAEmployee/${id}`);
       toast.success('Employee deleted successfully');
       fetchEmployees();
     } catch (error) {
@@ -254,7 +254,7 @@ function EmployeePage() {
             <tr key={employee._id}>
               <td className="px-6 py-4 whitespace-nowrap">
                 {employee.avatar ? (
-                  <img   src={employee.avatar ? `http://localhost:5000/uploads/${employee.avatar}` : 'path/to/default/image.jpg'} 
+                  <img   src={employee.avatar ? `https://employee-management-backend-psi.vercel.app/uploads/${employee.avatar}` : 'path/to/default/image.jpg'} 
                   alt="Avatar" className="w-12 h-12 rounded-full" />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gray-200"></div>
