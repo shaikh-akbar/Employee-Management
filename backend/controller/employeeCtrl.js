@@ -5,6 +5,7 @@ const Employee = require('../models/employeeSchema');
 
 
 const createEmployee = async (req, res) => {
+  console.log(name, email, phone, designation, gender, courses, "dhsgfjsh")
     try {
         const { name, email, phone, designation, gender, courses } = req.body;
         const avatar = req.file ? req.file.filename : null;
